@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cbvlut1jvmymk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xgho"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u52ul"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u52ul"]
+size = Vector3(30, 2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vonw3"]
+size = Vector3(30, 2, 30)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5xgho"]
+
+[sub_resource type="Sky" id="Sky_u52ul"]
+sky_material = SubResource("ProceduralSkyMaterial_5xgho")
+
+[sub_resource type="Environment" id="Environment_vonw3"]
+background_mode = 2
+sky = SubResource("Sky_u52ul")
+
+[node name="Level" type="Node3D" unique_id=1376934619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.45233917, 0, 0)
+
+[node name="Box" type="RigidBody3D" parent="." unique_id=1826573223]
+transform = Transform3D(0.054078843, 0.8824722, 0.4672451, 0, 0.46792975, -0.88376564, -0.99853665, 0.047793016, 0.025305105, 0, 5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box" unique_id=1077979274]
+shape = SubResource("BoxShape3D_5xgho")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box" unique_id=1887685155]
+mesh = SubResource("BoxMesh_u52ul")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=839103524]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10)
+fov = 85.37128
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=813494625]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=940184241]
+shape = SubResource("BoxShape3D_u52ul")
+debug_color = Color(0, 0.268694, 3.1672676, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1803762823]
+mesh = SubResource("BoxMesh_vonw3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2010339922]
+transform = Transform3D(1, 0, 0, 0, 0.7965299, 0.6045991, 0, -0.6045991, 0.7965299, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2038798529]
+environment = SubResource("Environment_vonw3")
