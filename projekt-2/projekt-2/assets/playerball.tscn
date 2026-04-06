@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vn61vfstkkrc"]
+
+[ext_resource type="PackedScene" uid="uid://cjatfcm1m66vu" path="res://imports/playerball.gltf" id="1_qgeru"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qgeru"]
+size = Vector3(1.9714661, 2.0007324, 1.9916992)
+
+[node name="Node3D" type="CharacterBody3D" unique_id=1955055688]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1541366686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011764526, 0.0025634766, 0.0031738281)
+shape = SubResource("BoxShape3D_qgeru")
+
+[node name="playerball" parent="." unique_id=1910897113 instance=ExtResource("1_qgeru")]

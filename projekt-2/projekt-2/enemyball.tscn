@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bh814gyuqjt00"]
+
+[ext_resource type="PackedScene" uid="uid://bqsn4vnxrh7s5" path="res://imports/enemy.gltf" id="1_j5btv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nay1e"]
+radius = 1.9668393
+
+[node name="enemyball" unique_id=1815243540 instance=ExtResource("1_j5btv")]
+
+[node name="enemy" parent="." index="0" unique_id=2086619982]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1001470089]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("SphereShape3D_nay1e")

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://68wvrmkl01g7"]
+
+[ext_resource type="FontFile" uid="uid://dqgkxwbuo2chb" path="res://fonts/Clayborn.ttf" id="1_rh14k"]
+[ext_resource type="Script" uid="uid://ewk7txibj3uo" path="res://play.gd" id="2_kyn48"]
+[ext_resource type="Script" uid="uid://b2yxunbr72qaq" path="res://exit.gd" id="3_oi7g3"]
+
+[node name="interface" type="Control" unique_id=1723200907]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1783097638]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1278713954]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.048
+anchor_bottom = 0.079
+offset_right = 1218.56
+offset_bottom = 169.12
+theme_override_colors/font_color = Color(0.5333243, 3.2488256e-07, 2.8878452e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.58973795, 0.33701146, 0.21614107, 1)
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("1_rh14k")
+theme_override_font_sizes/font_size = 200
+text = "BALL GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="play" type="Button" parent="." unique_id=1365633]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37500003
+anchor_top = 0.42400002
+anchor_right = 0.625
+anchor_bottom = 0.57600003
+offset_left = -0.5000305
+offset_top = -0.2800293
+offset_right = 0.5
+offset_bottom = 0.27996826
+grow_horizontal = 2
+grow_vertical = 2
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0.9098039, 0, 0.11372549, 1)
+theme_override_colors/font_hover_color = Color(0.37568802, 0.012330707, 0.08872751, 1)
+theme_override_fonts/font = ExtResource("1_rh14k")
+theme_override_font_sizes/font_size = 128
+text = "PLAY"
+flat = true
+script = ExtResource("2_kyn48")
+
+[node name="exit" type="Button" parent="." unique_id=98162397]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39200002
+anchor_top = 0.63900006
+anchor_right = 0.615
+anchor_bottom = 0.79200006
+offset_left = 0.23999023
+offset_top = -0.08004761
+offset_right = -12.200012
+offset_bottom = -0.24005127
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9098039, 0, 0.11372549, 1)
+theme_override_colors/font_hover_color = Color(0.37568802, 0.012330707, 0.08872751, 1)
+theme_override_fonts/font = ExtResource("1_rh14k")
+theme_override_font_sizes/font_size = 128
+text = "EXIT"
+flat = true
+script = ExtResource("3_oi7g3")
+
+[connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="exit" method="_on_exit_pressed"]
