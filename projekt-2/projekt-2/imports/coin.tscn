@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dknuchfac25bn"]
+
+[ext_resource type="PackedScene" uid="uid://82yvqai0i7cj" path="res://imports/coin.gltf" id="1_0u5yl"]
+[ext_resource type="Script" uid="uid://qgeov0avg84q" path="res://coin.gd" id="2_d6dgc"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d6dgc"]
+height = 0.1574707
+radius = 0.3203125
+
+[sub_resource type="Animation" id="Animation_d6dgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_302ky"]
+resource_name = "bounce"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ua30x"]
+_data = {
+&"RESET": SubResource("Animation_d6dgc"),
+&"bounce": SubResource("Animation_302ky")
+}
+
+[node name="coin" unique_id=845398400 instance=ExtResource("1_0u5yl")]
+script = ExtResource("2_d6dgc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1" unique_id=1596104388]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 4.8023807e-11, -0.0010986328)
+shape = SubResource("CylinderShape3D_d6dgc")
+
+[node name="Timer" type="Timer" parent="." index="2" unique_id=991504466]
+wait_time = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3" unique_id=1698046849]
+libraries/ = SubResource("AnimationLibrary_ua30x")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
